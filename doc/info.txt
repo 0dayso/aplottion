@@ -1,0 +1,37 @@
+域名：http:// aplotion.comeyes.cn /wap
+
+svn
+
+https://101.226.245.5/svn/Projects/CCE.Customer/CCE.Customer.Campaign/Armani/aplotion.comeyes.cn
+
+ 
+
+已经修改成PHP环境，原来.Net环境已停用
+
+域名已解析测试地址为：101.226.245.13:9001
+
+ 
+
+FTP
+
+Address：101.226.245.13 端口23
+
+UserName：comeyes_aplotion
+
+Password：vIxRKzY033
+
+ 
+
+MySQL
+
+Address：101.226.245.13:3306
+
+DB-Name：aplotion_comeyes_cn
+
+UserNmae：aplotion_comeyes
+
+Password：yR2HV931tB
+
+ 
+
+活动时间8.19-年底，奖品：30000份 Simple
