@@ -1,0 +1,31 @@
+
+http://aplotion.comeyes.cn/aplotion/api/lottery?cityId=1&marketId=2&phone=14782593339&v=23423
+
+抽奖接口 
+method:
+	GET
+url: 
+	/aplotion/api/lottery
+param:
+	param cityId 城市ID
+	param marketId 商店ID
+	param phone 手机号码
+
+return:
+	{
+		"code":200,
+		"message":"\u64cd\u4f5c\u6210\u529f",
+		"data":{
+			"type":1,
+			"prize":"奖品描述",
+			"number":23
+			}
+	}
+	
+	*	type 1 中奖
+	*	type 2 没中奖
+	*	type 3 重复抽奖限制
+	*	type 4 手机号码格式错误
+	*	type 5 地址门店不能为空
+    *	code 6 店铺不存在
+    *	code 7 地址不存在
