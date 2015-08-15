@@ -20,11 +20,11 @@
 	 <div id="header" class="clearfix">
      	<div class="top-menus">
         <?php if(!Yii::app()->admin->isGuest): ?>
-		<?php echo CHtml::link('店铺管理','/admin/market/admin'); ?> |
-		<?php echo CHtml::link('奖品设置','/admin/prize/admin'); ?> |
-		<?php echo CHtml::link('中奖记录','/admin/lottery/admin'); ?> |
-		<?php echo CHtml::link('地区管理','/admin/city/admin'); ?> |
-		<?php echo CHtml::link('修改密码','/admin/default/password'); ?> 
+		<?php echo CHtml::link('店铺管理',array('/admin/market/admin')); ?> |
+		<?php echo CHtml::link('奖品设置',array('/admin/prize/admin')); ?> |
+		<?php echo CHtml::link('中奖记录',array('/admin/lottery/admin')); ?> |
+		<?php echo CHtml::link('地区管理',array('/admin/city/admin')); ?> |
+		<?php echo CHtml::link('修改密码',array('/admin/default/password')); ?> 
         <?php endif; ?>
 		<?php if(!Yii::app()->admin->isGuest): ?>
 			| <?php echo CHtml::link( '退出',array('/admin/default/logout')); ?>

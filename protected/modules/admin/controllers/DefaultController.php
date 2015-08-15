@@ -19,7 +19,7 @@ class DefaultController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				$this->redirect("/admin/market/admin");
+				$this->redirect(array("/admin/market/admin"));
 		}
 		// display the login form
 		$this->render('index',array('model'=>$model));
@@ -31,7 +31,7 @@ class DefaultController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->admin->logout();
-		$this->redirect("/admin/default/index");
+		$this->redirect(array("/admin/default/index"));
 	}
 	
 	public function actionPassword(){
