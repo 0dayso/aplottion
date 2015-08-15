@@ -57,7 +57,7 @@ $this->breadcrumbs=array(
 		function send(data){
 			 $.ajax({
 					 type: "GET",
-					 url: "/admin/default/modifyPassword",
+					 url: "<?=$this->createUrl('/admin/default/modifyPassword');?>",
 					 data: data,
 					 dataType:'json',
 					 success: function(data){

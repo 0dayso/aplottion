@@ -121,11 +121,13 @@ class ApiController extends Controller
 				$rightPrizeModel = array();
 				//普通奖品时间判断
 				foreach($prizeList as $key=>$val){  
-					  if($val->number < $val->count){
-						  if($now < strtotime($val->endTime) && $now > strtotime($val->startTime) ){
-							  $rightPrizeModel[] = $val;  
+					if ($val->isDel != 1) {
+						  if($val->number < $val->count){
+							  if($now < strtotime($val->endTime) && $now > strtotime($val->startTime) ){
+								  $rightPrizeModel[] = $val;  
+							  }
 						  }
-					  }
+					}
 				}
 				$win = 0;
 				//随机奖品Model

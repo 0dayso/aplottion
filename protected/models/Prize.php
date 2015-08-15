@@ -114,7 +114,7 @@ class Prize extends CActiveRecord
 		$criteria->compare('endTime',$this->endTime,true);
 		$criteria->compare('createTime',$this->createTime,true);
 		$criteria->compare('updateTime',$this->updateTime,true);
-		$criteria->compare('isDel',$this->isDel);
+		$criteria->compare('isDel',0);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -54,6 +54,7 @@ class PrizeController extends Controller
 		if(isset($_POST['Prize']))
 		{
 			$model->attributes=$_POST['Prize'];
+			$model->type = 0;
 			$model->createTime = date("Y-m-d H:i:s");
 			$model->updateTime = date("Y-m-d H:i:s");
 			if($model->save())
