@@ -33,11 +33,11 @@ $this->menu=array(
             'type'=>'raw',
             'value'=> array($this,'getMarketName'),   //调用自定义的函数
         ),  
-		array(
-            'name'=>'type',
-            'type'=>'raw',
-            'value'=> array($this,'getTypeName'),   //调用自定义的函数
-        ),
+		// array(
+  //           'name'=>'type',
+  //           'type'=>'raw',
+  //           'value'=> array($this,'getTypeName'),   //调用自定义的函数
+  //       ),
 		'createTime',
 		array(
             'name'=>'win',

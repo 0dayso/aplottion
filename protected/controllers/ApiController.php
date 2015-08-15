@@ -200,8 +200,7 @@ class ApiController extends Controller
 					
 					$this->jsonSuccess(array(
 						'type'=>$code['lucky'],
-						'prize'=>$prizeNoteStr,
-						'number'=>$uid
+						'prize'=>$prizeNoteStr
 					));
 				}else{
 					$recordParamArr['win'] = 0;

@@ -20,4 +20,25 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+
+	protected function getCurrectDate(){
+		$now = time();
+		$currectTime = date("Y-m-d H:i:s",$now);	
+		return $currectTime;
+	}
+	protected function jsonSuccess($data, $params = array())
+	{
+		$data = array('code'=>200,'message'=>'操作成功','data'=>$data);
+		$data = array_merge($data, $params);
+		echo CJSON::encode($data);
+		exit;
+	}
+	protected function jsonError($data,$message, $params = array())
+	{
+		$data = array('code'=>201,'message'=>$message,'data'=>$data);
+		$data = array_merge($data, $params);
+		echo CJSON::encode($data);
+		exit;
+	}
+	
 }
