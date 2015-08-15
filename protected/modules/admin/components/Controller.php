@@ -34,11 +34,11 @@ class Controller extends CController
 		//site/error 直接通过
 		if(in_array($controller,array('default')) && in_array($action,array('index'))){
 			if(!Yii::app()->admin->isGuest){
-				$this->redirect('/admin/market/admin');	
+				$this->redirect(array('/admin/market/admin'));	
 			}
 		}else{
 			if(Yii::app()->admin->isGuest){
-				$this->redirect('/admin/default/index');	
+				$this->redirect(array('/admin/default/index'));	
 			}
 		}
 		return $action;
