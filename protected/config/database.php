@@ -1,14 +1,18 @@
 <?php
 
 // This is the database connection configuration.
-return array(
-	'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-	// uncomment the following lines to use a MySQL database
-	/*
-	'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+/*return array(
+	'connectionString' => 'mysql:host=localhost;dbname=masterofglow_comeyes_cn',
 	'emulatePrepare' => true,
-	'username' => 'root',
-	'password' => '',
-	'charset' => 'utf8',
-	*/
+	'username' => 'masterofglow',
+	'password' => 'TLhB1MLMjt',
+	'charset' => 'utf8'
+);*/
+
+return array(
+	'connectionString' => 'mysql:host=localhost;dbname=aplotion_comeyes_cn',
+	'emulatePrepare' => true,
+	'username' => 'aplotion_comeyes',
+	'password' => 'yR2HV931tB',
+	'charset' => 'utf8'
 );
