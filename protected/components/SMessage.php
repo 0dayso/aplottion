@@ -27,8 +27,12 @@ class SMessage{
 	public static $optional_headers = NULL;
 	public static $url = "http://www.smsadmin.cn/smsmarketing/wwwroot/api/get_send/";
 	
-	public static function sendMs($mobile,$place,$prize, $dtime = NULL){
-		$msg = "恭喜您获得专属底妆权利，七天内，凭短息莅临阿玛尼".$place."美妆专柜，尊享明星粉底体验装（".$prize."）一份，共襄15周年礼遇。（数量有限，领完即止）【阿玛尼美妆】";
+	public static function sendMs($mobile,$place,$prize, $type = 1){
+		if($type != 1){
+			$msg = "感谢您的参与，全新「黑钥匙」体验装今日申领活动已截止。（数量有限，领完即止）本活动最终解释权归阿玛尼所有。【阿玛尼美妆】";
+		}else{
+			$msg = "感谢您的申领，请在7天内凭短信莅临阿玛尼".$place."美妆专柜，领取全新「黑钥匙」体验装一份。（数量有限，领完即止）本活动最终解释权归阿玛尼所有。【阿玛尼美妆】";
+		}
 		
 		$url = self::$url."?uid=".self::$uid."&pwd=".self::$pwd."&mobile=".$mobile."&msg=".$msg."&dtime=''";
 		$html = iconv('GBK', 'UTF-8', file_get_contents($url));

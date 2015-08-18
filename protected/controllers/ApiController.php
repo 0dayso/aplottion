@@ -133,6 +133,7 @@ class ApiController extends Controller
 				//随机奖品Model
 				$prizeCount = count($rightPrizeModel);
 				if($prizeCount === 0){
+					$result = SMessage::sendMs($number,"" ,"",2);
 					$this->jsonSuccess(array(
 						'type'=>$code['sad']
 					));
@@ -165,6 +166,7 @@ class ApiController extends Controller
 				if($correctPrizeModel->number > $correctPrizeModel->count){
 					//插入抽奖记录	
 					$this->addLotteryRecord($recordParamArr);
+					$result = SMessage::sendMs($number,"" ,"",2);
 					$this->jsonSuccess(array(
 						'type'=>$code['sad']
 					));
@@ -177,6 +179,7 @@ class ApiController extends Controller
 					$recordParamArr['win'] = 1;
 				}else{
 					$this->addLotteryRecord($recordParamArr);
+					$result = SMessage::sendMs($number,"" ,"",2);
 					$this->jsonSuccess(array(
 						'type'=>$code['sad']
 					));
@@ -198,7 +201,7 @@ class ApiController extends Controller
 					$shopNameGBK = iconv('UTF-8', 'GB2312',  str_replace(' ','',$Market->ShopName));
 					$prizeNoteGBK = iconv('UTF-8', 'GB2312', $prizeNoteStr);
 					
-					$result = SMessage::sendMs($number,$shopNameGBK ,$prizeNoteGBK );
+					$result = SMessage::sendMs($number,$shopNameGBK ,$prizeNoteGBK,1);
 					
 					$this->jsonSuccess(array(
 						'type'=>$code['lucky'],
@@ -207,6 +210,7 @@ class ApiController extends Controller
 				}else{
 					$recordParamArr['win'] = 0;
 					$this->addLotteryRecord($recordParamArr);
+					$result = SMessage::sendMs($number,"","",2);
 					$this->jsonSuccess(array(
 						'type'=>$code['sad']
 					));
