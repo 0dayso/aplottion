@@ -19,7 +19,7 @@ class DefaultController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				$this->redirect(array("/admin/market/admin"));
+				$this->redirect(array("/admin/prize/admin"));
 		}
 		// display the login form
 		$this->render('index',array('model'=>$model));
