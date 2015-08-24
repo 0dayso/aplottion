@@ -28,10 +28,22 @@ class SMessage{
 	public static $url = "http://www.smsadmin.cn/smsmarketing/wwwroot/api/get_send/";
 	
 	public static function sendMs($mobile,$place,$prize, $type = 1){
-		if($type != 1){
-			$msg = "感谢您的参与，全新「黑钥匙」体验装今日申领活动已截止。（数量有限，领完即止）本活动最终解释权归阿玛尼所有。【阿玛尼美妆】";
+		$lineDateStr = '2015-09-01 00:00:00';
+		$timeline = strtotime($lineDateStr);
+		$timenow = time();
+
+		if ($timenow > $timeline ) {
+			if($type != 1){
+				$msg = "感谢您的参与，全新「黑钥匙」体验装今日申领活动已截止。（数量有限，领完即止，转发无效）本活动最终解释权归阿玛尼美妆所有。【阿玛尼美妆】";
+			}else{
+				$msg = "感谢您的申领，请在7天内凭短信莅临阿玛尼".$place."美妆专柜，领取全新「黑钥匙」乳霜体验装一份。（数量有限，领完即止，转发无效）本活动最终解释权归阿玛尼美妆所有。【阿玛尼美妆】";
+			}
 		}else{
-			$msg = "感谢您的申领，请在7天内凭短信莅临阿玛尼".$place."美妆专柜，领取全新「黑钥匙」体验装一份。（数量有限，领完即止）本活动最终解释权归阿玛尼所有。【阿玛尼美妆】";
+			if($type != 1){
+				$msg = "感谢您的参与，全新黑钥匙「赋活水」今日申领活动已截止。（数量有限，领完即止，转发无效）本活动最终解释权归阿玛尼美妆所有。【阿玛尼美妆】";
+			}else{
+				$msg = "感谢您的申领，请在7天内凭短信莅临阿玛尼".$place."美妆专柜，领取全新黑钥匙「赋活水」体验装一份。（数量有限，领完即止，转发无效）本活动最终解释权归阿玛尼美妆所有。【阿玛尼美妆】";
+			}
 		}
 		
 		$url = self::$url."?uid=".self::$uid."&pwd=".self::$pwd."&mobile=".$mobile."&msg=".$msg."&dtime=''";

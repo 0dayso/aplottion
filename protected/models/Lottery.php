@@ -47,7 +47,7 @@ class Lottery extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user'=>array(self::BELONGS_TO, 'User', 'uid'),
+			//'user'=>array(self::BELONGS_TO, 'User', 'uid'),
 		);
 	}
 
@@ -88,18 +88,18 @@ class Lottery extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-		$criteria->with = array('user');
+		//$criteria->with = array('user');
 		$criteria->compare('id',$this->id);
 		$criteria->compare('uid',$this->uid);
-		$criteria->compare('phone',$this->phone,true);
+		$criteria->compare('phone',$this->phone);
 		$criteria->compare('cityId',$this->cityId);
 		$criteria->compare('marketId',$this->marketId);
 		$criteria->compare('type',$this->type);
-		$criteria->compare('createTime',$this->createTime,true);
-		$criteria->compare('updateTime',$this->updateTime,true);
-		$criteria->compare('win',1);
-		$criteria->compare('nickname',$this->username);
-		$criteria->compare('path',$this->path);
+		$criteria->compare('createTime',$this->createTime);
+		$criteria->compare('updateTime',$this->updateTime);
+		//$criteria->compare('win',1);
+		//$criteria->compare('nickname',$this->username);
+		///$criteria->compare('path',$this->path);
 		
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
