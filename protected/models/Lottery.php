@@ -23,6 +23,10 @@ class Lottery extends CActiveRecord
 	
 	public $path;
 	
+	public $search_endtime;
+	
+	public $search_starttime;
+	
 	public function tableName()
 	{
 		return 'lottery';
@@ -91,11 +95,13 @@ class Lottery extends CActiveRecord
 		//$criteria->with = array('user');
 		$criteria->compare('id',$this->id);
 		$criteria->compare('uid',$this->uid);
-		$criteria->compare('phone',$this->phone);
+		$criteria->compare('phone',$this->phone,true);
 		$criteria->compare('cityId',$this->cityId);
 		$criteria->compare('marketId',$this->marketId);
 		$criteria->compare('type',$this->type);
-		$criteria->compare('createTime',$this->createTime);
+		//$criteria->compare('createTime',$this->createTime,true);
+		$criteria->compare('createTime','<='.$this->search_endtime);//创建早间小于等于指定时间  
+		$criteria->compare('createTime','>='.$this->search_starttime);//创建早间小于等于指定时间  
 		$criteria->compare('updateTime',$this->updateTime);
 		//$criteria->compare('win',1);
 		//$criteria->compare('nickname',$this->username);
