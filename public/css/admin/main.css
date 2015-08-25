@@ -375,3 +375,8 @@ div.form .row label,div.form input{
     color: #fff;
     cursor: pointer;
 	}
+
+button{
+	padding: 10px;
+	cursor: pointer;
+}
