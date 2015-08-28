@@ -13,7 +13,34 @@ $this->menu=array(
 
 ?>
 
-<h1>中奖记录</h1>
+<h1>中奖记录 - (数据下载)</h1>
+<style type="text/css">
+    ul.download-link{
+        list-style: none;
+        margin: 0;
+        padding: 10px 0;
+        float: right;
+    }
+    ul.download-link li{
+        float: left;
+        display: inline-block;
+    }
+    ul.download-link li a{
+        text-decoration: none;
+        padding: 8px;
+        margin-left: 1px;
+        background-color: #06c;
+        color: #fff;
+        border-radius: 3px;
+    }
+</style>
+<div class="clearfix">
+<ul class="download-link">
+    <li><a href="/csv/lottery.php?scode=<?=$code;?>&v=<?=time();?>">中奖记录</a></li>
+    <li><a href="/csv/city.php?scode=<?=$code;?>&v=<?=time();?>">城市抽奖数量统计</a></li>
+    <li><a href="/csv/market.php?scode=<?=$code;?>&v=<?=time();?>">店铺抽奖数量统计</a></li>
+</ul>
+</div>
 <div class="history_from_date form">
 	<input type="hidden" value="1" name="Lottery[search]" />
 	<input type="text" readonly name="Lottery[search_starttime]" id="Lottery_startTime" placeholder="开始时间" value="<?php echo isset($model->search_starttime) ? $model->search_starttime:""; ?>" />
@@ -25,8 +52,10 @@ $this->menu=array(
 		$('#history_search').click(function(e) {
 			var a = {};
 			$("input[name^='Lottery']").each(function(i, o){
-				$this = $(this)
-				a[ $this.attr('name') ] = $this.val();
+				$this = $(this);
+                //if ($this.val()) {
+				    a[ $this.attr('name') ] = $this.val();
+                //};
 			});
 			send(a);
         });
@@ -40,6 +69,16 @@ $this->menu=array(
 
             $('#lottery-grid').yiiGridView('update', {url: url + '?' + selectedStr +'&Lottery_page=1&ajax=lottery-grid' });
 
+			//  $.ajax({
+			// 		 type: "GET",
+			// 		 url: "<?=$this->createUrl('/admin/lottery/admin');?>",
+			// 		 data: data,
+			// 		 dataType:'json',
+			// 		 success: function(data){
+			// 			console.log(data);
+			// 			window.document.write( data );
+			// 		 }
+			// });
 		}
 </script>
 </div>
